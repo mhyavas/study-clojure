@@ -122,5 +122,23 @@
   (println pet3)
   (def pet4 (assoc pet2 :PetAge 3))
   (println pet4))
+(Structs)
+
+;Destruct
+(defn Destruct []
+  (def vect1 [1 2 3 4]) ;extracting values from a vector
+  (let [[a b c] vect1] (println a b c))
+  (let [[a b & rest] vect1] (println a b rest))
+  ;Extracting value from a map
+  (def map1 {'name "Mahmut" 'lastname "Oz"})
+  (let [{a 'name b 'lastname} map1] (println a b))
+  )
 
 
+(defn ExceptionHandling [x]
+  (try
+    (inc x)
+    (catch ClassCastException e (println "Error:" (.getMessage e)))
+    (catch Exception e (println (.getMessage e)))
+    (finally (println "For memory cleanup!"))))
+(ExceptionHandling "test")
